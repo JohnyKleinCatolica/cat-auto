@@ -9,7 +9,7 @@ import br.org.catolica.catauto.bean.AutomovelResumido;
 import br.org.catolica.catauto.dao.AutomovelResumidoDao;
 import br.org.catolica.catauto.jpa.JPAUtil;
 
-@ManagedBean
+@ManagedBean(name="automovelBean")
 public class AutomovelBean {
 
 	private AutomovelResumido automovelResumido = 
@@ -18,13 +18,8 @@ public class AutomovelBean {
 				new AutomovelResumidoDao();
 
 	public void salva() {
-		EntityManager em = JPAUtil.getEntityManager();
-		em.getTransaction().begin();
-		
-		em.persist(automovelResumido);
-		
-		em.getTransaction().commit();
-		em.close();
+		automovelResumidoDao.salva(automovelResumido);
+		this.automovelResumido = new AutomovelResumido();
 	}
 	
 	
