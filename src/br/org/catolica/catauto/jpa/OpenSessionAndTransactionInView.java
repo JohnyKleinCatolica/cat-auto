@@ -12,7 +12,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-//@WebFilter("/*")
+@WebFilter("/*")
 public class OpenSessionAndTransactionInView implements Filter{
 
 	@Override
