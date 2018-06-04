@@ -5,35 +5,31 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 
-import br.org.catolica.catauto.bean.AutomovelResumido;
-import br.org.catolica.catauto.dao.AutomovelResumidoDao;
+import br.org.catolica.catauto.bean.Automovel;
+import br.org.catolica.catauto.dao.AutomovelDao;
 import br.org.catolica.catauto.jpa.JPAUtil;
 
-@ManagedBean(name="automovelBean")
+@ManagedBean(name="automovelBeann")
 public class AutomovelBean {
 
-	private AutomovelResumido automovelResumido = 
-				new AutomovelResumido();
-	private AutomovelResumidoDao automovelResumidoDao =
-				new AutomovelResumidoDao();
-
+	private Automovel automovel = new Automovel();
+	private AutomovelDao automovelDao =	new AutomovelDao();
+//	private Marca marca;
+	
 	public void salva() {
-		automovelResumidoDao.salva(automovelResumido);
-		this.automovelResumido = new AutomovelResumido();
+		automovelDao.salva(automovel);
+		this.automovel = new Automovel();
 	}
 	
-	
-	public List<AutomovelResumido> getAutomoveis(){
-		return this.automovelResumidoDao.listaTodos();
+	public List<Automovel> getAutomoveis(){
+		return this.automovelDao.listaTodos();
 	}
 	
-	public AutomovelResumido getAutomovelResumido() {
-		return automovelResumido;
+	public Automovel getAutomovel() {
+		return automovel;
 	}
 
-	public void setAutomovelResumido(AutomovelResumido automovelResumido) {
-		this.automovelResumido = automovelResumido;
+	public void setAutomovel(Automovel automovel) {
+		this.automovel = automovel;
 	}
-
-
 }

@@ -1,9 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="facesmotors.css" />
+</h:head>
 <h:body>
-	<h:dataTable value="#{automovel.Bean.automoveis}" var="automovel" border="1">
-		<h:column>#{automovel.id}</h:column>
-		<h:column>#{automovel.modelo}</h:column>
-	</h:dataTable>
+	<h:form>
+		<p:dataTable rowClasses="table-linha-par, table-linha-impar"
+			value="#{automovelBeann.automoveis}" var="automovel" border="1">
+			<p:column>
+				<f:facet name="header">id</f:facet>
+#{automovel.id}
+</p:column>
+			<p:column>
+				<f:facet name="header">marca</f:facet>
+#{automovel.marca}
+</p:column>
+			<p:column>
+				<f:facet name="header">modelo</f:facet>	
+#{automovel.modelo}
+</p:column>
+			<p:column>
+				<f:facet name="header">anoFabricacao</f:facet>
+#{automovel.anoFabricacao}
+</p:column>
+			<p:column>
+				<f:facet name="header">anoModelo</f:facet>
+#{automovel.anoModelo}
+</p:column>
+			<p:column>
+				<f:facet name="header">observacao</f:facet>
+#{automovel.observacao}
+</p:column>
+			<p:column>
+				<f:facet name="header">Ações</f:facet>
+				<p:commandLink action="#{automovelBeann.exclui(automovel)}">
+excluir
+</p:commandLink>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

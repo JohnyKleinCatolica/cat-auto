@@ -25,7 +25,7 @@ import org.hibernate.envers.NotAudited;
 @Entity
 @Cacheable
 @Audited
-public class Automovel {
+public class Automovel implements Bean{
 
 	public static final String LISTAR_DESTAQUES = "Automovel.buscarDestaques";
 	@Id
